@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sponsors</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+  <ion-item-group>
+    <ion-item-divider class="transparent2">Platinum</ion-item-divider>
+    <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of platinum | async">
+        <ion-avatar item-start>
+          <img src="{{ s.imageurl }}">
+        </ion-avatar> 
+        <h2>{{ s.name}}</h2>
+          <p>{{ s.info }}</p>
+      
+      </ion-item>
+  </ion-item-group>
+
+
+      
+
+
+
+        <ion-item-group>
+          <ion-item-divider class="transparent2">Gold</ion-item-divider>
+          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of gold | async">
+              <ion-avatar item-start>
+                <img src="{{ s.imageurl }}">
+              </ion-avatar> 
+              <h2>{{ s.name}}</h2>
+                <p>{{ s.info }}</p>
+            
+            </ion-item>
+        </ion-item-group>
+    
+        <ion-item-group>
+          <ion-item-divider class="transparent2">Silver</ion-item-divider>
+          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of silver | async">
+              <ion-avatar item-start>
+                <img src="{{ s.imageurl }}">
+              </ion-avatar> 
+              <h2>{{ s.name}}</h2>
+                <p>{{ s.info }}</p>
+            
+            </ion-item>
+        </ion-item-group>
+          
+</ion-content>

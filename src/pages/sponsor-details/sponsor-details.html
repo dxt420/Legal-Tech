@@ -1,0 +1,46 @@
+<!--
+  Generated template for the SponsorDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-title>{{ xx.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg" padding>
+    
+    <ion-avatar id="jj">
+        <img src="{{ xx.imageurl }}">
+
+    </ion-avatar>
+ 
+
+    <div text-center padding>
+    
+    <h2>{{ xx.info }}</h2>
+      <br>
+    </div>
+    <div style="border-radius:10px;" class="transparent" padding>
+    <h3 style="color:rgb(74, 140, 245);">Description</h3>
+    <p>{{ xx.description }}</p>
+
+    <br>
+    <h3 style="color:rgb(74, 140, 245);">Contact Info</h3>
+    
+    <p style="color:rgb(74, 140, 245);">Website</p>
+    <p>{{  xx.website }}</p>
+    <p style="color:rgb(74, 140, 245);">Phone</p>
+    <p>{{ xx.phone }}</p>
+    <p style="color:rgb(74, 140, 245);">Email</p>
+    <p>{{ xx.email }}</p>
+    
+  </div>
+
+  
+</ion-content>

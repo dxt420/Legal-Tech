@@ -1,0 +1,36 @@
+<!--
+  Generated template for the NotifyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card class="transparent" *ngFor="let item of cardItems">
+
+                    
+                
+    <ion-card-content>
+      <p>{{item.content}}</p>
+    </ion-card-content>
+
+    <ion-row>
+     
+      <ion-col center text-center>
+        <ion-note>
+          Tue 10th
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>

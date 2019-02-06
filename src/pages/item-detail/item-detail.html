@@ -1,0 +1,178 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+  
+
+    <ion-buttons  start>
+        <button ion-button class="logo">
+           <img [src]="'../../assets/img/event/logo.png'">
+              </button>
+        </ion-buttons>
+    
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding class="bg">
+  <!-- <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'" style="height:170px;">
+  </div> -->
+
+  <!-- Login / Signup UI Segments --> 
+ 
+ 
+
+  
+  
+
+  <!-- User information shown when a user is logged in -->
+  <!-- <ion-item *ngIf="userProfile">
+    <ion-avatar item-left>
+      <img [src]="userProfile.photoURL">
+    </ion-avatar>
+    <h2>{{ userProfile.displayName }}</h2>
+    <h3>{{ userProfile.email }}</h3>
+  </ion-item> -->
+
+  <!-- Sign Out -->
+  <!-- <button ion-button round full color="danger" (click)="signOut()" *ngIf="userProfile">
+     
+      Sign Out
+</button> -->
+
+
+  <ion-grid>
+    <ion-row style="padding:15px;">
+      
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'SchedulePage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/schedule.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               Schedule
+            </p>
+        </div>
+
+        </ion-col>
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'SpeakersPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/speakers.png'">
+
+            </ion-avatar>
+
+            <p class="artName">
+               Speakers
+            </p>
+        </div>
+        </ion-col>
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'SponsorsPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/sponsors.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               Sponsors
+            </p>
+        </div>
+
+        </ion-col>
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'ExhibitorsPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/exhibitors.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               Exhibitors
+            </p>
+        </div>
+
+        </ion-col>
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'MapsPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/maps.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               Map
+            </p>
+        </div>
+        </ion-col>
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'AttendeesPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/attendees.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               Attendees
+            </p>
+        </div>
+
+        </ion-col>
+
+       
+
+        <ion-col no-lines  col-4 id="art" (click)="openItem(item,'WifiPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                    <img [src]="'../../assets/img/event/wifi-info.png'">
+            </ion-avatar>
+
+            <p class="artName">
+               WiFi Information
+            </p>
+
+        </div>
+        </ion-col>
+
+        <ion-col align-items-center no-lines  col-4 id="art" (click)="openItem(item,'SocialPage')">
+                <div align="center">
+            <ion-avatar id="jj">
+                <img [src]="'../../assets/img/event/social.png'">
+
+            </ion-avatar>
+
+            <p class="artName">
+               Social
+            </p>
+        </div>
+
+        </ion-col>
+
+        <ion-col align-items-center no-lines  col-4 id="art" >
+                <div align="center">
+            <ion-avatar id="jj">
+                <img [src]="'../../assets/img/event/quiz_1.png'">
+
+            </ion-avatar>
+
+            <p class="artName">
+               Quiz
+            </p>
+        </div>
+
+        </ion-col>
+      
+    </ion-row>
+    <br><br>
+    <ion-avatar id="jjj">
+        <img [src]="'../../assets/img/event/host.png'">
+
+    </ion-avatar>
+</ion-grid>
+</ion-content>
+
+

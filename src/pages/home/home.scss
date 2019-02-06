@@ -1,0 +1,45 @@
+page-home {
+
+  
+    .dx{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10px;
+    }
+    
+   
+
+    .segment-ios .segment-button.segment-activated {
+        color: white;
+        background-color:  rgb(74, 140, 245);
+    }
+
+    .bg{
+        background-image: url('../../assets/img/event/bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+      
+      }
+
+      .transparent{
+        background-color: rgba(0, 0, 0, 0.21);
+        color: white;
+    }
+
+    .transparent2{
+        background-color: rgba(0, 0, 0, 0.61);
+        color: white;
+    }
+
+    .transparent2 h2{
+        color: white;
+    }
+
+    ion-badge {
+		// position: absolute;
+		// top: -0.2rem;
+		// right: -0.2rem;
+        opacity: 0.6;
+        
+    }
+}

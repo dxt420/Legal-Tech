@@ -1,0 +1,89 @@
+<!--
+  Generated template for the SpeakersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="!isOn">Speakers</ion-title>
+
+    <ion-buttons end>
+      <button (click)="toggleSearch()" ion-button >
+              <ion-icon name="search"></ion-icon>
+            </button>
+      </ion-buttons>
+
+    <!-- <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()" *ngIf="isOn" placeholder="Search Speakers"></ion-searchbar> -->
+    <ion-searchbar *ngIf="isOn" placeholder="Search Speakers"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  class="bg">
+
+  <!-- <div *ngIf="!isOn2"> -->
+  <!-- <ion-item-group  *ngFor="let group of groupedSpeakers | async">
+    <ion-item-divider color="secondary">{{ group.letter }}</ion-item-divider>
+
+        <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="openItem(speaker,'SpeakerDetailsPage')">
+            <ion-avatar item-start>
+              <img [src]="getPic(speaker)">
+              
+            </ion-avatar>
+            <h2>{{ speaker }}</h2>
+            <p>{{ getCompany(speaker) }}</p>
+          
+          </ion-item>
+
+
+
+
+  
+
+  </ion-item-group> -->
+<!-- </div> -->
+
+
+
+
+      <ion-item no-lines class="transparent" *ngFor="let speaker of speakers | async" (click)="openItem(speaker,'SpeakerDetailsPage')">
+          <ion-avatar item-start>
+            <img src="{{ speaker.imageurl }}">
+            <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
+          </ion-avatar>
+          <h2>{{ speaker.name }}</h2>
+          <p>{{ speaker.company }}</p>
+        
+        </ion-item>
+
+
+
+
+
+
+
+<!-- <div *ngIf="isOn2">
+  <ion-item-group  *ngFor="let group of groupedSpeakers2">
+    <ion-item-divider color="secondary">{{ group.letter }}</ion-item-divider>
+
+        <ion-item no-lines class="transparent" *ngFor="let speaker of group.speakers, let i = index" (click)="getCompany2(speaker); openItem(speaker,'SpeakerDetailsPage')">
+            <ion-avatar item-start>
+              <img [src]="'../../assets/img/trip.jpg'">
+            </ion-avatar>
+            <h2>{{ speaker }}</h2>
+            <p>{{ getCompany(speaker) }}</p>
+          
+          </ion-item>
+
+
+  
+  </ion-item-group>
+</div> -->
+
+
+
+
+</ion-content>

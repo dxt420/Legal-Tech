@@ -1,0 +1,29 @@
+
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Exhibitors</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content class="bg">
+
+
+
+       
+
+
+        <ion-item no-lines class="transparent" *ngFor="let a of exhibitors | async" (click)="openItem(a,'ExhibitorsDetailsPage')">
+          <ion-avatar item-start>
+            <img src="{{ a.imageurl }}">
+            <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
+          </ion-avatar>
+          <h2>{{ a.name }}</h2>
+          <p>{{ a.company }}</p>
+        
+        </ion-item>
+            
+  </ion-content>
+  
