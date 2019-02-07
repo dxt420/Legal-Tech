@@ -44,6 +44,21 @@
     info: string;
   }
 
+  export interface Attendee {
+    fisrtName: string;
+    lastName: string;
+    imageurl: string;
+   
+  }
+
+  export interface Schedule {
+    name: string;
+    time: string;
+    speakers: any;  
+   
+  }
+  
+
   export interface Social {
     facebook: string;
     linkedin: string;

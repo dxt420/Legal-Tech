@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-import  firebase  from 'firebase';
-import { ItemDetailPage } from '../item-detail/item-detail';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { TabsPage } from '../tabs/tabs';
@@ -57,7 +55,8 @@ login() {
   this.auth.signInWithEmail(credentials)
     .then(
       () => this.navCtrl.setRoot(TabsPage),
-      error => this.loginError = error.message
+      // error => this.loginError = error.message
+      error => this.loginError = "Credentials are invalid, if you're a new user please sign up"
     );
 }
 

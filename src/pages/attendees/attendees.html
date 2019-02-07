@@ -8,19 +8,18 @@
 </ion-header>
 
 
-<ion-content class="bg">
+<ion-content padding class="bg">
 
-  <ion-item-group   *ngFor="let group of groupedAttendees">
-    <ion-item-divider class="transparent2">{{ group.letter }}</ion-item-divider>
+ 
 
-        <ion-item no-lines class="transparent" *ngFor="let attendee of group.attendees, let i = index" (click)="getPic2(attendee); getCompany2(attendee); openItem(attendee,'AttendeeDetailsPage')">
+        <ion-item no-lines class="transparent" *ngFor="let attendee of attendees | async" (click)="openItem(attendee,'AttendeeDetailsPage')">
             <ion-avatar item-start>
-              <img [src]="getPic(attendee)">
+             <img src="{{ attendee.imageurl }}">
             </ion-avatar>
-            <h2>{{ attendee }}</h2>
-            <p>{{ getCompany(attendee) }}</p>
+            <h2>{{ attendee.fisrtName }}  {{ attendee.lastName }}</h2>
+            
           
           </ion-item>
   
-  </ion-item-group>
+
 </ion-content>

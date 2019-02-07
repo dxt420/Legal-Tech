@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
-import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Map, Wifi, Speaker, Social, About } from '../../models/sponsorGold';
+import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Map, Wifi, Speaker, Social, About, Attendee, Schedule } from '../../models/sponsorGold';
 
 /*
   Generated class for the DataProvider provider.
@@ -19,6 +19,11 @@ export class DataProvider {
   public silverSponsorsListRef = this.db.list<SilverSponsor>('sponsors/silver');
   public platinumSponsorsListRef = this.db.list<PlatinumSponsor>('sponsors/platinum');
 
+  public attendeeListRef = this.db.list<Attendee>('users');
+
+  public scheduleListRef = this.db.list<Schedule>('schedule');
+
+  public scheduledSpeakersListRef = this.db.list<Speaker>('speakers');
 
 
   public speakersListRef = this.db.list<Speaker>('speakers');
@@ -38,6 +43,18 @@ export class DataProvider {
 
  
 
+
+
+
+  getScheduleList() {
+    return this.scheduleListRef;
+}
+
+
+
+  getAttendeeList() {
+    return this.attendeeListRef;
+}
 
   getGoldSponsorList() {
     return this.goldSponsorsListRef;

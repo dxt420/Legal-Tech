@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, normalizeURL, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, normalizeURL, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { TabsPage } from '../tabs/tabs';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 /**
  * Generated class for the SignupPage page.
@@ -20,6 +20,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
 export class SignupPage {
   signupError: string;
 	form: FormGroup;
+	img;
 
 	constructor(
 		fb: FormBuilder,
@@ -31,9 +32,14 @@ export class SignupPage {
 		this.form = fb.group({
 			oname: ['', Validators.compose([Validators.required])],
 			sname: ['', Validators.compose([Validators.required])],
+			company: ['', Validators.compose([Validators.required])],
+			position: ['', Validators.compose([Validators.required])],
+			gender: ['', Validators.compose([Validators.required])],
 			email: ['', Validators.compose([Validators.required, Validators.email])],
 			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 		});
+
+		this.img = document.getElementById("jj") as HTMLImageElement;
   }
 
 
@@ -46,6 +52,9 @@ export class SignupPage {
 			password: data.password,
 			firstName: data.oname,
 			lastName: data.sname,
+			company: data.company,
+			position: data.position,
+			gender: data.gender,
 		};
 		this.auth.signUp(credentials).then(
 			() => this.navCtrl.setRoot(TabsPage),
@@ -60,7 +69,8 @@ uploadImageToFirebase(image){
 	//uploads img to firebase storage
 	this.auth.uploadImage(image)
 	.then(photoURL => {
-
+		console.log(photoURL);
+		this.img.src = photoURL;
 		let toast = this.toastCtrl.create({
 			message: 'Image was updated successfully',
 			duration: 3000
@@ -92,3 +102,6 @@ openImagePicker(){
 		});
 	}
 }
+
+
+

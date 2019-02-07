@@ -59,12 +59,12 @@
   <form (ngSubmit)="login()" [formGroup]="loginForm">
 		<ion-list inset>
 
-			<ion-item >
+			<ion-item no-lines>
 				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
 			</ion-item>
 
 		
-			<ion-item >
+			<ion-item no-lines>
 				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
 			</ion-item>
 
@@ -72,7 +72,7 @@
 		</ion-list>
 
 		<div padding-horizontal>
-			<div class="form-error">{{loginError}}</div>
+			<div text-center style="color:red;" class="form-error">{{loginError}}</div>
 
 			<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
 			<!-- <div class="login-footer">

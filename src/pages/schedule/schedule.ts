@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Item } from '../../models/item';
+
+import { DataProvider } from '../../providers/data/data';
+
 
 /**
  * Generated class for the SchedulePage page.
@@ -16,25 +18,34 @@ import { Item } from '../../models/item';
 })
 export class SchedulePage {
 
-  xx;
+  schedule;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private speakersList: DataProvider) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-
-    this.xx = navParams.get('schedule');
    
-    console.log(this.xx);
+    this.schedule = this.speakersList.getScheduleList()
+    .snapshotChanges()
+    .map(
+    changes => {
+      return changes.map(c => ({
+        key: c.payload.key, ...c.payload.val()
+      }))
+    });
+   
+  
   }
-
-
-  openItem(item: Item,page: string) {
+  logg(a:any){
+    console.log(a);
+  } 
+  openItem(item: any,page: string) {
     this.navCtrl.push(page.toString(), {
       sch: item,
-      // company: this.company
+      
     });
 
-    console.log(item);
-    // console.log(this.company);
   }
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
   }

@@ -18,13 +18,17 @@ import { AuthProvider } from '../providers/auth/auth';
   template: `<ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Conference Guide</ion-title>
+        <ion-title>Guide</ion-title>
+       
+       
+        <ion-icon menuClose end name="close-circle-outline"></ion-icon>
+             
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <ion-list no-lines>
-        <ion-item *ngFor="let p of pages"  (click)="openPage(p)">
+        <ion-item *ngFor="let p of pages" menuClose (click)="openPage(p)">
           <ion-icon [name]="p.icon" item-left></ion-icon>
           {{ p.title }}
         </ion-item>
@@ -59,20 +63,20 @@ export class MyApp {
     this.initTranslate();
 
     this.pages = [
-      // { title: 'Tutorial', component: 'TutorialPage' },
-      { title: 'Happening Now', component: 'WelcomePage', icon:"funnel" },
-      { title: 'Schedule', component: 'SchedulePage', icon:"list"  },
+      
+      
+     
+      
       { title: 'Speakers', component: 'SpeakersPage', icon:"people"  },
       { title: 'Sponsors', component: 'SponsorsPage', icon:"ionic"  },
-      { title: 'Exhibitors', component: 'ExhibitorsPage', icon:'album'  },
+      { title: 'Exhibitors', component: 'ExhibitorsPage', icon:'albums'  },
       { title: 'Directions (Map)', component: 'MapsPage' , icon:'map' },
-      { title: 'Attendees', component: 'AttendeesPage', icon:'ios-people'  },
-      { title: 'About the Conference', component: 'AboutPage' , icon:'information' },
+      { title: 'Attendees', component: 'AttendeesPage', icon:'ios-people' },
       { title: 'WiFi Information', component: 'WifiPage', icon:'wifi'  },
-      { title: 'Social Media', component: 'SocialPage' , icon:'social' },
-      { title: 'Profile', component: 'ProfilePage' , icon:'social' },
-      { title: 'Notifications', component: 'NotifyPage' , icon:'social' },
-      { title: 'SocialWall', component: 'HomePage' , icon:'social' }
+      
+      
+      
+     
 
     ]
 
@@ -127,10 +131,13 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
+  openPage(a) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    // this.nav.setRoot(a.component);
+
+    this.nav.push(a.component.toString());
+    
   }
 
  

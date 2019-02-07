@@ -6,38 +6,44 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Schedule</ion-title>
+  <ion-navbar text-center>
+      <button ion-button menuToggle start>
+          <ion-icon style="background-color:rgba(red, green, blue, 0.1)" name="menu"></ion-icon>
+        </button>
+    <ion-title >Schedule</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="bg">
-    <ion-item-divider text-center class="transparent2">Wednesday 6th, February 2019</ion-item-divider>
-    <ion-item-group >
+  <ion-item-divider text-center class="transparent2">5th March 2019</ion-item-divider>
+  <ion-item-group>
+
+
+    <ion-item no-lines *ngFor="let s of schedule | async" class="transparent" (click)="openItem(s,'ScheduleDetailsPage')">
+
+      <h2 style="color:#00b7ff;"><ion-icon name="time"></ion-icon> {{ s.time }}</h2>
+      <div>
+      <h2>{{ s.title }}</h2>
+      <div class="faces">
         
-    
-            <ion-item no-lines *ngFor="let s of xx" class="transparent" (click)="openItem(s,'ScheduleDetailsPage')">
-                
-                <h2 style="color:#00b7ff;">{{ s.time }}</h2>
-                <h1>{{ s.title }}</h1>
-                <div class="faces">
-                <ion-avatar  *ngFor="let a of s.speakers">
-                    <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
-                    <img [src]="a.profilePic">
-                  </ion-avatar>
-                  <!-- <ion-avatar >
-                      <img [src]="'../../assets/img/trip.jpg'">
-                    </ion-avatar>
-                    <ion-avatar >
-                        <img [src]="'../../assets/img/trip.jpg'">
-                      </ion-avatar> -->
+       
+        <!-- <p *ngFor="let ss of s.speakers, let i = index">
+            * {{ ss[i].name }}
+        </p> -->
 
-                    </div>
-              </ion-item>
-      
-      </ion-item-group>
+          <ion-avatar *ngFor="let ss of s.speakers">
+              <img src="{{ ss.imageurl }}">
+              
+          </ion-avatar>
+        
 
-      
+      </div>
+    </div>
+    </ion-item>
+
+  </ion-item-group>
+
+
 </ion-content>

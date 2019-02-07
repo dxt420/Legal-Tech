@@ -31,9 +31,9 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { SignupPage } from '../pages/signup/signup';
-import { FormsModule } from '@angular/forms';
+
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { ImagePicker } from '@ionic-native/image-picker';
  
 // AF2 Settings
 export const firebaseConfig = {

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Item } from '../../models/item';
-
 import { Observable } from 'rxjs-compat';
-
 import { GoldSponsor, SilverSponsor, PlatinumSponsor } from '../../models/sponsorGold';
 import { DataProvider } from '../../providers/data/data';
 

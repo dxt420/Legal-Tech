@@ -17,15 +17,26 @@ import { DataProvider } from '../../providers/data/data';
 export class MapsPage {
 
 
-  map;
+  m;
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private speakersList: DataProvider) {
 
-    this.map = this.speakersList.getMapList().snapshotChanges()
-    .subscribe( opportunities => {
-        
+    this.speakersList.getMapList().valueChanges().subscribe(snap => {
+      console.log(snap);
+      this.m = snap;
     });
+
+
+    // getUserFirstName() {
+    //   let userId = this.user.uid; 
+    //   return this.db.database.ref(`/users/${userId}/firstName/`).once('value').then((snapshot) =>{
+    //     return snapshot.val() || 'Anoynymous';
+    //   })
+    // }
+    // .subscribe( opportunities => {
+        
+    // });
    
 
     

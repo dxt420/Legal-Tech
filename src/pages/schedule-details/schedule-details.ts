@@ -20,7 +20,12 @@ export class ScheduleDetailsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.xx = navParams.get('sch');
     console.log(this.xx);
- 
+
+    this.xx.speakers.forEach((a,index) => {
+      console.log(a);
+      console.log(a[index]);
+
+    });
   }
 
   ionViewDidLoad() {
