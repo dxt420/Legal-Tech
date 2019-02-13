@@ -23,9 +23,14 @@ export class ScheduleDetailsPage {
 
     this.xx.speakers.forEach((a,index) => {
       console.log(a);
-      console.log(a[index]);
+      console.log(typeof(a));
 
     });
+
+    for(let i=0; i< this.xx.speakers.length; i++){
+      var aa = this.xx.speakers[i];
+      console.log(aa['name']);
+  }
   }
 
   ionViewDidLoad() {

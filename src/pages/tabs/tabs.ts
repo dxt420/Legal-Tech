@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Tab1Root, Tab2Root, Tab3Root, Tab4Root, Tab5Root, Tab6Root, Tab7Root, Tab8Root, Tab9Root, Tab10Root, Tab11Root, Tab12Root } from '../';
@@ -28,7 +28,7 @@ export class TabsPage {
   selectedIndex;
 
   color: string = "secondary";
-  constructor( public navParams: NavParams,public navCtrl: NavController, public translateService: TranslateService) {
+  constructor( public navParams: NavParams,public navCtrl: NavController) {
     // this.selectedIndex = 0;
     // if (navParams.data.index) {
     //   this.selectedIndex = navParams.data.index;

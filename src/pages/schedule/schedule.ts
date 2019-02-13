@@ -19,6 +19,7 @@ import { DataProvider } from '../../providers/data/data';
 export class SchedulePage {
 
   schedule;
+  speakers;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private speakersList: DataProvider) {
 
@@ -32,6 +33,20 @@ export class SchedulePage {
       }))
     });
    
+
+    this.speakers = this.speakersList.getSpeakersList()
+    .snapshotChanges()
+    .map(
+    changes => {
+      return changes.map(c => ({
+        key: c.payload.key, ...c.payload.val()
+      }))
+    });
+
+
+    this.schedule.forEach(element => {
+      console.log(element);
+    });
   
   }
   logg(a:any){

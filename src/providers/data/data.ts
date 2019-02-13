@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
-import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Map, Wifi, Speaker, Social, About, Attendee, Schedule } from '../../models/sponsorGold';
+import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Wifi, Speaker, Social, About, Attendee, Schedule } from '../../models/sponsorGold';
 
 /*
   Generated class for the DataProvider provider.

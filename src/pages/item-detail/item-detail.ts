@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { Items } from '../../providers';
-import { Item } from '../../models/item';
 
 
 
@@ -15,12 +13,12 @@ export class ItemDetailPage {
   item: any;
   
 
-  constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = items.defaultItem;
+  constructor(public navCtrl: NavController, navParams: NavParams) {
+
     
   }
 
-  toSponsors(item: Item,page: string) {
+  toSponsors(item: any,page: string) {
     this.navCtrl.push(page.toString(), {
       platinum: this.item.extra.sponsors.platinum,
       gold: this.item.extra.sponsors.gold,
@@ -28,7 +26,7 @@ export class ItemDetailPage {
     });
   }
 
-  openItem(item: Item,page: string) {
+  openItem(item: any,page: string) {
     this.navCtrl.push(page.toString(), {
       speakers: this.item.extra.speakers,
       platinum: this.item.extra.sponsors.platinum,

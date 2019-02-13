@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar text-center>
     <ion-title>Sponsors</ion-title>
   </ion-navbar>
 
@@ -11,12 +11,12 @@
 <ion-content class="bg">
   <ion-item-group>
     <ion-item-divider class="transparent2">Platinum</ion-item-divider>
-    <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of platinum | async">
+    <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of platinum | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
         <ion-avatar item-start>
           <img src="{{ s.imageurl }}">
         </ion-avatar> 
         <h2>{{ s.name}}</h2>
-          <p>{{ s.info }}</p>
+          <p style="color:#00b7ff;">{{ s.info }}</p>
            
 
       </ion-item>
@@ -29,24 +29,24 @@
 
         <ion-item-group>
           <ion-item-divider class="transparent2">Gold</ion-item-divider>
-          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of gold | async">
+          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of gold | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
               <ion-avatar item-start>
                 <img src="{{ s.imageurl }}">
               </ion-avatar> 
               <h2>{{ s.name}}</h2>
-                <p>{{ s.info }}</p>
+                <p style="color:#00b7ff;">{{ s.info }}</p>
               
             </ion-item>
         </ion-item-group>
     
         <ion-item-group>
           <ion-item-divider class="transparent2">Silver</ion-item-divider>
-          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of silver | async">
+          <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of silver | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">
               <ion-avatar item-start>
                 <img src="{{ s.imageurl }}">
               </ion-avatar> 
               <h2>{{ s.name}}</h2>
-                <p>{{ s.info }}</p>
+                <p style="color:#00b7ff;">{{ s.info }}</p>
               
             </ion-item>
         </ion-item-group>

@@ -1,3 +1,21 @@
 page-notify {
 
+  .bg{
+    background-image: url('../../assets/img/event/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+  }
+    .even{
+        background-color: rgba(102, 84, 84, 0.21);
+      }
+      .odd{
+        
+        background-color: #2c456da1;
+      }
+
+      .card-md p {
+        color: white;
+    }
+
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Item } from '../../models/item';
 import { DataProvider } from '../../providers/data/data';
 
 /**
@@ -34,10 +33,19 @@ export class AttendeesPage {
 
   }
 
+  first(a:any){
+      a.toString();
+      return a.charAt(0)
+  }
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
+    }
+    
 
 
-
-  openItem(item: Item,page: string) {
+  openItem(item: any,page: string) {
     this.navCtrl.push(page.toString(), {
       attendee: item
     });

@@ -15,14 +15,19 @@ $font-path: "../assets/fonts";
 $text-color:        #fff;
 $background-color:  #000;
 
+$toolbar-background: #00b7ff;
+
 
 
 $toolbar-ios-title-font-size: 1.9rem; 
 $toolbar-md-title-font-size: 1.9rem;
 
 
-$toolbar-ios-title-text-color:#fff;
-$toolbar-md-title-text-color:#fff;
+$toolbar-ios-title-text-color:#f4f4f4;
+$toolbar-md-title-text-color:#f4f4f4;
+
+$tab-button-md-active-color:  black;
+$tab-button-md-inactive-color:  rgb(145, 139, 139);
 
 
 $searchbar-md-input-search-icon-color:#f4f4f4;
@@ -39,7 +44,7 @@ $searchbar-ios-input-search-icon-color:#f4f4f4;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    rgb(74, 140, 245),
+  primary:    #049cd8,
   secondary:  rgb(0, 37, 63),
   danger:     #f53d3d,
   light:      #f4f4f4,

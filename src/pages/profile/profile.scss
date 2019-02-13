@@ -15,5 +15,29 @@ page-profile {
         // height: 100px;
       } 
 
+      .bg{
+        background-image: url('../../assets/img/event/bg.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+      
+      }
+      .transparent{
+        
+        padding: 10px;
+    }
+
+    .item-md{
+      background-color: #049cd800;
+      color:white;
+    }
+      h3{
+        size: 150%;
+      }
+      #jj ion-text-avatar{
+        height: 120px;
+        width: 120px;
+        background-color: #00b7ff00;
+        font-size: 300%;
+      }
 
 }

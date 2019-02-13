@@ -1,33 +1,46 @@
 <ion-header>
 
-    <ion-navbar>
-      <ion-title>{{ xx }}</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content class="bg" padding>
-      
-    <ion-avatar id="jj">
-      <img src="{{ xx.imageurl }}">
+  <ion-navbar text-center>
+    <ion-title>Delegate Details</ion-title>
+  </ion-navbar>
 
-   </ion-avatar>
+</ion-header>
 
 
-   <div text-center padding>
-   <h2>{{ xx.name }}</h2>
+<ion-content class="bg" padding>
+  <ion-item no-lines >
+  <ion-avatar id="jj">
+    <!-- <img [src]="'../../assets/img/event/avatar-placeholder.gif'"> -->
+    <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ first(xx.firstName) }}{{ first(xx.lastName) }}</ion-text-avatar>
 
-     <br>
-   </div>
-      <div style="border-radius:10px;" class="transparent" padding>
-      <!-- <h3 style="color:rgb(74, 140, 245);">Bio</h3>
-      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p> -->
+  </ion-avatar>
+
+</ion-item>
+
+
+
+
+  <div text-center padding>
+    <h2>{{ xx.firstName }} {{ xx.lastName }}</h2>
+  </div>
+
+
+  <div style="border-radius:10px;" class="transparent" padding>
+    <h3 style="color:#00b7ff;">About</h3>
+    <p>Position</p>
+    <h4 style="color:#00b7ff;"> {{ xx.position }}</h4>
+    <p>Company</p>
+    <h5 style="color:#00b7ff;">{{ xx.company }}</h5>
+      <p>gender : {{xx.gender}}</p>
+
+
+    <br>
   
-      <br>
-      <!-- <h3 style="color:rgb(74, 140, 245);">Tags</h3>
-      <button ion-button round small color="danger">Attendee</button> -->
-    </div>
+      <button ion-button color="secondary">
+        Request Contact
+      </button>
   
-    
-  </ion-content>
+  </div>
+
+
+</ion-content>

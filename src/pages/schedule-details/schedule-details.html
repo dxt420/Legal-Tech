@@ -14,19 +14,19 @@
 <ion-content class="bg" padding>
     
 
-  <h1 style="color:rgb(74, 140, 245);" text-center><ion-icon name="time"></ion-icon> {{ xx.time }}</h1>
+  <h1 style="color:#00b7ff;" text-center><ion-icon name="time"></ion-icon> {{ xx.time }}</h1>
   <div text-center padding>
   <h2>{{ xx.title }}</h2>
  
   </div>
   <div style="border-radius:10px;" class="transparent" padding>
-  <h3 style="color:rgb(74, 140, 245);">Details</h3>
+  <h3 style="color:#00b7ff;">Details</h3>
   <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
 
-  <h3 style="color:rgb(74, 140, 245);">Speakers</h3>
+  <h3 style="color:#00b7ff;">Speakers</h3>
   <ion-item no-lines class="transparent3" *ngFor="let speaker of xx.speakers">
     <ion-avatar item-start>
-     <img src="{{ speaker.imageurl }}">
+     <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
     </ion-avatar>
     <h2>{{ speaker.key }}</h2>
     <p>{{ speaker.info }}</p>

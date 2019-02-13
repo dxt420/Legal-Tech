@@ -17,13 +17,14 @@ import { ImagePicker } from '@ionic-native/image-picker';
 })
 export class ProfilePage {
 
-  fname;
+  fname = "0";
   lname;
   company;
   pic;
   position;
   img;
   initials;
+  phone;
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider,public toastCtrl: ToastController,public imagePicker: ImagePicker) {
     this.authProvider.getUserFirstName()
       .then(fname => {
@@ -34,6 +35,7 @@ export class ProfilePage {
       .catch(error => {
         console.log('OOPS, error', error)
       })
+      
 
 
       this.authProvider.getUserLastName()
@@ -77,12 +79,52 @@ export class ProfilePage {
       // this.initials = this.fname.toString().substring(0,1) + " " + this.lname.toString().substring(0,1);
   }
 
+
   public error:string[]=[];
 
   setValue(name:string,index:number)
     {
       console.log(name);
       this.error[index]=name.substring(0,2);
+    }
+
+    first(){ 
+      var a;
+      this.authProvider.getUserFirstName()
+      .then(fname => {
+      
+        a = fname;
+        console.log(a);
+
+        return a.charAt(0);
+      })
+      .catch(error => {
+        console.log('OOPS, error', error)
+      })
+      
+      
+  }
+
+  second(){ 
+    var a;
+    this.authProvider.getUserLastName()
+    .then(fname => {
+    
+      a = fname;
+        console.log(a);
+
+        return a.charAt(0);
+      
+    })
+    .catch(error => {
+      console.log('OOPS, error', error)
+    })
+    
+}
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
     }
 
   

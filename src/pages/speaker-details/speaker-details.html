@@ -1,34 +1,52 @@
-
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ xx.name }}</ion-title>
+  <ion-navbar text-center>
+    <ion-title>Speaker Details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="bg" padding>
-    
-      <ion-avatar id="jj">
-         <img src="{{ xx.imageurl }}">
 
-      </ion-avatar>
-   
+  <ion-avatar id="jj">
+    <img src="{{ xx.imageurl }}">
 
-      <div text-center padding>
-      <h2>{{ xx.name }}</h2>
-      <p>{{ xx.company }}</p>
-        <br>
-      </div>
-      <div style="border-radius:10px;" class="transparent" padding>
-      <h3 style="color:rgb(74, 140, 245);">Bio</h3>
-      <p>{{xx.info}}</p>
+  </ion-avatar>
 
-      <br>
-      
-      
-    </div>
 
-    
+  <div text-center padding>
+    <h2>{{ xx.name }}</h2>
+    <p>{{ xx.company }}</p>
+    <br>
+  </div>
+  <div style="border-radius:10px;" class="transparent" padding>
+    <h3 style="color:#00b7ff;">About</h3>
+    <p>{{xx.info}}</p>
+
+    <br>
+
+
+    <h3 style="color:#00b7ff;">Resources</h3>
+    <ion-item-group class="xxx">
+    <ion-item no-lines class="transparent3">
+      <p>Attachment 1</p>
+      <!-- <button ion-button item-right small>
+    <ion-icon name="download" mode="md"></ion-icon>
+  </button> -->
+      <button ion-button item-right small round>Download</button>
+
+    </ion-item>
+    <ion-item no-lines class="transparent3">
+      <p>Attachment 2</p>
+      <!-- <button ion-button item-right small>
+      <ion-icon name="cloud-download"></ion-icon>
+    </button> -->
+      <button ion-button item-right small round>Download</button>
+
+    </ion-item>
+  </ion-item-group>
+  </div>
+
+
 </ion-content>

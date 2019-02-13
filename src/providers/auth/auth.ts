@@ -28,31 +28,31 @@ export class AuthProvider {
   getUserFirstName() {
     let userId = this.user.uid;
     return this.db.database.ref(`/users/${userId}/firstName/`).once('value').then((snapshot) => {
-      return snapshot.val() || 'Anoynymous';
+      return snapshot.val() || 'Anonymous';
     })
   }
   getUserLastName() {
     let userId = this.user.uid;
     return this.db.database.ref(`/users/${userId}/lastName/`).once('value').then((snapshot) => {
-      return snapshot.val() || 'Anoynymous';
+      return snapshot.val() || 'Anonymous';
     })
   }
   getUserCompany() {
     let userId = this.user.uid;
     return this.db.database.ref(`/users/${userId}/company/`).once('value').then((snapshot) => {
-      return snapshot.val() || 'Anoynymous';
+      return snapshot.val() || 'Anonymous';
     })
   }
   getUserPosition() {
     let userId = this.user.uid;
     return this.db.database.ref(`/users/${userId}/position/`).once('value').then((snapshot) => {
-      return snapshot.val() || 'Anoynymous';
+      return snapshot.val() || 'Anonymous';
     })
   }
   getUserPic() {
     let userId = this.user.uid;
     return this.db.database.ref(`/users/${userId}/imageurl/`).once('value').then((snapshot) => {
-      return snapshot.val() || 'Anoynymous';
+      return snapshot.val() || 'Anonymous';
     })
   }
 
@@ -73,6 +73,8 @@ export class AuthProvider {
           lastName: credentials.lastName,
           company: credentials.company,
           position: credentials.position,
+          phone: credentials.phone,
+          imageurl: credentials.imageurl,
           gender: credentials.gender,
           id: user.user.uid
 

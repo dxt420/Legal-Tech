@@ -47,6 +47,9 @@
   export interface Attendee {
     fisrtName: string;
     lastName: string;
+    company: string;
+    position: string;
+    gender: string;
     imageurl: string;
    
   }

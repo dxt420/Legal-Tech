@@ -22,6 +22,7 @@ export class SignupPage {
 	form: FormGroup;
 	img;
 
+	imgurl;
 	constructor(
 		fb: FormBuilder,
     private navCtrl: NavController,
@@ -33,6 +34,7 @@ export class SignupPage {
 			oname: ['', Validators.compose([Validators.required])],
 			sname: ['', Validators.compose([Validators.required])],
 			company: ['', Validators.compose([Validators.required])],
+			phone: ['', Validators.compose([Validators.required])],
 			position: ['', Validators.compose([Validators.required])],
 			gender: ['', Validators.compose([Validators.required])],
 			email: ['', Validators.compose([Validators.required, Validators.email])],
@@ -55,6 +57,8 @@ export class SignupPage {
 			company: data.company,
 			position: data.position,
 			gender: data.gender,
+			phone: data.phone,
+			imageurl: this.imgurl
 		};
 		this.auth.signUp(credentials).then(
 			() => this.navCtrl.setRoot(TabsPage),
@@ -70,7 +74,8 @@ uploadImageToFirebase(image){
 	this.auth.uploadImage(image)
 	.then(photoURL => {
 		console.log(photoURL);
-		this.img.src = photoURL;
+		// this.img.src = photoURL;
+		this.imgurl = photoURL;
 		let toast = this.toastCtrl.create({
 			message: 'Image was updated successfully',
 			duration: 3000

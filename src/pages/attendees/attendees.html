@@ -1,22 +1,27 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Attendees</ion-title>
+  <ion-navbar text-center>
+    <ion-title>Delegates</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class="bg">
+<ion-content class="bg">
 
  
 
-        <ion-item no-lines class="transparent" *ngFor="let attendee of attendees | async" (click)="openItem(attendee,'AttendeeDetailsPage')">
+        <ion-item no-lines class="transparent" *ngFor="let attendee of attendees | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'" (click)="openItem(attendee,'AttendeeDetailsPage')">
             <ion-avatar item-start>
-             <img src="{{ attendee.imageurl }}">
+                 <!-- <img [src]="'../../assets/img/event/avatar-placeholder.gif'"> -->
+                 <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ first(attendee.firstName) }}{{ first(attendee.lastName) }}</ion-text-avatar>
             </ion-avatar>
-            <h2>{{ attendee.fisrtName }}  {{ attendee.lastName }}</h2>
+
+            
+
+            <h2>{{ attendee.firstName }} {{ attendee.lastName }}</h2>
+            <p style="color:#00b7ff;">{{ attendee.company }} </p>
             
           
           </ion-item>

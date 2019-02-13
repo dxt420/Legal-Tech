@@ -26,12 +26,17 @@ page-sponsor-details {
       } 
 
       .transparent{
-        background-color: rgba(0, 0, 0, 0.61);
+        background-color: #00b7ff60;
     }
 
     .transparent2{
         background-color: rgba(0, 37, 63,0.3);
         color: white;
     }
+
+    ion-title{
+      margin-right: 20%;
+  }
+
 
 }

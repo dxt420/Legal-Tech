@@ -10,7 +10,7 @@
       <button ion-button menuToggle start>
           <ion-icon style="background-color:rgba(red, green, blue, 0.1)" name="menu"></ion-icon>
         </button>
-    <ion-title >Schedule</ion-title>
+    <ion-title >Agenda</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -21,12 +21,12 @@
   <ion-item-group>
 
 
-    <ion-item no-lines *ngFor="let s of schedule | async" class="transparent" (click)="openItem(s,'ScheduleDetailsPage')">
+    <ion-item no-lines *ngFor="let s of schedule | async ; let i = index;" class="transparent" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'" (click)="openItem(s,'ScheduleDetailsPage')">
 
-      <h2 style="color:#00b7ff;"><ion-icon name="time"></ion-icon> {{ s.time }}</h2>
-      <div>
-      <h2>{{ s.title }}</h2>
-      <div class="faces">
+      <h2 style="color:#00b7ff;font-size:150%;"><ion-icon name="time"></ion-icon> {{ s.time }}</h2>
+      <div >
+      <h2 style="padding-left:12%;">{{ s.title }}</h2>
+      <div style="padding-left:10%;" class="faces">
         
        
         <!-- <p *ngFor="let ss of s.speakers, let i = index">
@@ -34,7 +34,7 @@
         </p> -->
 
           <ion-avatar *ngFor="let ss of s.speakers">
-              <img src="{{ ss.imageurl }}">
+              <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
               
           </ion-avatar>
         

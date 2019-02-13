@@ -1,52 +1,69 @@
-<!--
-  Generated template for the ProfilePage page.
+<ion-content padding class="bg">
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
+  <ion-item no-lines>
+    <!-- <button ion-button (click)="openImagePicker()">Select Photo</button> -->
+    <ion-avatar id="jj" (click)="openImagePicker()">
+      <!-- <img [src]="img" (error)="setValue(fname,0)"> -->
 
-  <ion-navbar text-center>
-   <button ion-button menuToggle start>
-          <ion-icon style="background-color:rgba(red, green, blue, 0.1)" name="menu"></ion-icon>
-        </button>
-    <ion-title>Profile</ion-title>
-  </ion-navbar>
+      <!-- <ion-text-avatar>{{ initials }}</ion-text-avatar> -->
 
-</ion-header>
-
-
-<ion-content padding>
-
-<ion-item no-lines>
-		<!-- <button ion-button (click)="openImagePicker()">Select Photo</button> -->
-		 <ion-avatar id="jj" (click)="openImagePicker()">
-         <!-- <img [src]="img" (error)="setValue(fname,0)"> -->
-         
-        <ion-text-avatar>{{ initials }}</ion-text-avatar>
-      </ion-avatar>
-	</ion-item>
-  <ion-item>
-    <!-- <ion-avatar item-left>
-      <img [src]="userProfile.photoURL">
+      <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
+      <!-- <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ first() }}</ion-text-avatar> -->
     </ion-avatar>
-    <h2>{{ userProfile.displayName }}</h2> -->
-    <h5>Name</h5>
-    <h3  style="color:#00b7ff;">{{ fname }} {{ lname }}</h3>
-    <h5>Email</h5>
-    <h3  style="color:#00b7ff;">{{ this.authProvider.getEmail() }}</h3>
-    <h5>Company</h5>
-    <h3  style="color:#00b7ff;">{{ company }}</h3>
-    <h5>Position</h5>
-    <h3  style="color:#00b7ff;">{{ position }}</h3>
   </ion-item>
 
-  <ion-item-group>
-    <ion-item no-lines  (click)="signOut()" class="transparent">
-      <h2>Sign Out</h2>
+  <div style="border-radius:10px;" class="transparent" text-center>
+
+    <ion-item>
+
+      <h5>Name</h5>
+      <h3 style="color:#00b7ff;font-size:150%;">{{ fname }} {{ lname }}</h3>
+
     </ion-item>
 
-  
+
+    <ion-item>
+
+
+      <h5>Email</h5>
+      <h3 style="color:#00b7ff;font-size:150%;">{{ this.authProvider.getEmail() }}</h3>
+
+    </ion-item>
+
+    <ion-item>
+
+
+      <h5>Company</h5>
+      <h3 style="color:#00b7ff;font-size:150%;">{{ company }}</h3>
+
+    </ion-item>
+
+    <ion-item>
+
+
+      <h5>Position</h5>
+      <h3 style="color:#00b7ff;font-size:150%;">{{ position }}</h3>
+
+    </ion-item>
+
+    <ion-item>
+
+
+      <h5>Phone</h5>
+      <h3 style="color:#00b7ff;font-size:150%;">{{ phone }}</h3>
+    </ion-item>
+
+  </div>
+
+  <ion-item-group>
+
+    <ion-item>
+      <button ion-button (click)="signOut()" color="danger">
+        Sign Out
+      </button>
+    </ion-item>
+
+
   </ion-item-group>
 
 </ion-content>
