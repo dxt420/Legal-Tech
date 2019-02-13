@@ -29,14 +29,12 @@
       <div style="padding-left:10%;" class="faces">
         
        
-        <!-- <p *ngFor="let ss of s.speakers, let i = index">
-            * {{ ss[i].name }}
-        </p> -->
+       
 
-          <ion-avatar *ngFor="let ss of s.speakers">
-              <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
-              
+          <ion-avatar *ngFor="let ss of  generateArray(s.speakers)">
+              <img src="{{ ss.imageurl }}">
           </ion-avatar>
+          
         
 
       </div>

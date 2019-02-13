@@ -24,12 +24,13 @@
   <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
 
   <h3 style="color:#00b7ff;">Speakers</h3>
-  <ion-item no-lines class="transparent3" *ngFor="let speaker of xx.speakers">
+  <ion-item no-lines class="transparent3" *ngFor="let speaker of generateArray(xx.speakers)">
     <ion-avatar item-start>
      <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
     </ion-avatar>
-    <h2>{{ speaker.key }}</h2>
+    <h2>{{ speaker.name }}</h2>
     <p>{{ speaker.info }}</p>
+    
 
  
   

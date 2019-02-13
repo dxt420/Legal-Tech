@@ -19,22 +19,17 @@ export class ScheduleDetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.xx = navParams.get('sch');
-    console.log(this.xx);
 
-    this.xx.speakers.forEach((a,index) => {
-      console.log(a);
-      console.log(typeof(a));
 
-    });
-
-    for(let i=0; i< this.xx.speakers.length; i++){
-      var aa = this.xx.speakers[i];
-      console.log(aa['name']);
-  }
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScheduleDetailsPage');
+  }
+
+
+  generateArray(obj){
+    return Object.keys(obj).map((key)=>{ return obj[key]});
   }
 
 }

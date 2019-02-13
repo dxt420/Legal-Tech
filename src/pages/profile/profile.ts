@@ -35,7 +35,8 @@ export class ProfilePage {
       .catch(error => {
         console.log('OOPS, error', error)
       })
-      
+
+
 
 
       this.authProvider.getUserLastName()
@@ -74,9 +75,18 @@ export class ProfilePage {
         console.log('OOPS, error', error)
       })
 
+      this.authProvider.getUserPic()
+      .then(fname => {
+        
+        this.initials = this.fname.toString().substring(0,1) + "" + this.lname.toString().substring(0,1);
+      })
+      .catch(error => {
+        console.log('OOPS, error', error)
+      })
+
       this.img = document.getElementById("jj") as HTMLImageElement;
       
-      // this.initials = this.fname.toString().substring(0,1) + " " + this.lname.toString().substring(0,1);
+       
   }
 
 
@@ -88,22 +98,7 @@ export class ProfilePage {
       this.error[index]=name.substring(0,2);
     }
 
-    first(){ 
-      var a;
-      this.authProvider.getUserFirstName()
-      .then(fname => {
-      
-        a = fname;
-        console.log(a);
-
-        return a.charAt(0);
-      })
-      .catch(error => {
-        console.log('OOPS, error', error)
-      })
-      
-      
-  }
+    
 
   second(){ 
     var a;

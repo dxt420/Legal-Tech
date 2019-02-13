@@ -25,7 +25,7 @@ export class SignupPage {
 	imgurl;
 	constructor(
 		fb: FormBuilder,
-    private navCtrl: NavController,
+    	private navCtrl: NavController,
 		private auth: AuthProvider,
 		public toastCtrl: ToastController,
 		public imagePicker: ImagePicker

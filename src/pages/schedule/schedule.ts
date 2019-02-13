@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 
 
+
 /**
  * Generated class for the SchedulePage page.
  *
@@ -19,43 +20,37 @@ import { DataProvider } from '../../providers/data/data';
 export class SchedulePage {
 
   schedule;
-  speakers;
-  
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private speakersList: DataProvider) {
 
-   
-    this.schedule = this.speakersList.getScheduleList()
-    .snapshotChanges()
-    .map(
-    changes => {
-      return changes.map(c => ({
-        key: c.payload.key, ...c.payload.val()
-      }))
-    });
-   
-
-    this.speakers = this.speakersList.getSpeakersList()
-    .snapshotChanges()
-    .map(
-    changes => {
-      return changes.map(c => ({
-        key: c.payload.key, ...c.payload.val()
-      }))
-    });
 
 
-    this.schedule.forEach(element => {
-      console.log(element);
-    });
-  
+
   }
-  logg(a:any){
+
+  ngOnInit() {
+    this.schedule = this.speakersList.getScheduleList()
+      .snapshotChanges()
+      .map(
+        changes => {
+          return changes.map(c => ({
+            key: c.payload.key, ...c.payload.val()
+          }))
+        });
+  }
+
+  generateArray(obj){
+    return Object.keys(obj).map((key)=>{ return obj[key]});
+  }
+
+  logg(a: any) {
     console.log(a);
-  } 
-  openItem(item: any,page: string) {
+  }
+  openItem(item: any, page: string) {
     this.navCtrl.push(page.toString(), {
       sch: item,
-      
+
     });
 
   }
