@@ -8,7 +8,7 @@
   </ion-header>
   
   
-  <ion-content class="bg">
+  <ion-content >
 
 
 
@@ -18,7 +18,7 @@
         <ion-item no-lines class="transparent" *ngFor="let a of exhibitors | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'" (click)="openItem(a,'ExhibitorsDetailsPage')">
           <ion-avatar item-start>
             <img src="{{ a.imageurl }}">
-            <!-- <img [src]="'../../assets/img/trip.jpg'"> -->
+            <!-- <img [src]="'assets/img/trip.jpg'"> -->
           </ion-avatar>
           <h2>{{ a.name }}</h2>
           <p  style="color:#00b7ff;">{{ a.company }}</p>

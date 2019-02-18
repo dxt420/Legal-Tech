@@ -62,6 +62,16 @@
   }
   
 
+  export interface Post {
+    fisrtName: string;
+    lastName: string;
+    company: string;
+    position: string;
+    body: string;
+    id: string;
+  }
+  
+
   export interface Social {
     facebook: string;
     linkedin: string;

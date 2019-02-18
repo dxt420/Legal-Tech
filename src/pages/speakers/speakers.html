@@ -9,7 +9,7 @@
 </ion-header>
 
 
-<ion-content  class="bg">
+<ion-content  >
 
 
       <ion-item no-lines class="transparent" *ngFor="let speaker of speakers | async; let i = index;"  [ngClass]="(i % 2 == 0) ? 'odd' : 'even'" (click)="openItem(speaker,'SpeakerDetailsPage')">

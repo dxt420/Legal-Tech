@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content class="bg">
+<ion-content >
   <ion-item-group>
     <ion-item-divider class="transparent2">Platinum</ion-item-divider>
     <ion-item  class="transparent" no-lines (click)="openItem(s,'SponsorDetailsPage')" *ngFor="let s of platinum | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'">

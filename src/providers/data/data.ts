@@ -2,7 +2,11 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
-import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Wifi, Speaker, Social, About, Attendee, Schedule } from '../../models/sponsorGold';
+import { GoldSponsor, SilverSponsor, PlatinumSponsor, Exhibitor, Wifi, Speaker, Social, About, Attendee, Schedule, Post } from '../../models/sponsorGold';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Platform } from 'ionic-angular';
+
 
 /*
   Generated class for the DataProvider provider.
@@ -28,6 +32,9 @@ export class DataProvider {
 
   public speakersListRef = this.db.list<Speaker>('speakers');
 
+  
+
+
   public exhibitorsListRef = this.db.list<Exhibitor>('exhibitors');
 
   public mapListRef = this.db.object('map');
@@ -38,11 +45,66 @@ export class DataProvider {
 
   public aboutListRef = this.db.list<About>('about');
 
+  public postsListRef = this.db.list<Post>('posts');
 
-  constructor(private db: AngularFireDatabase) { }
 
+   headerDict = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT',
+    'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAAKjiVgAAAAAAH3XGlo%2B4usYi8aI%2B7SHcSsdI%2BO4%3Dkyuwv4q9JHpTNnGscjsRfa0IqHJTcktvcjsmPWv7cBnyZgOtzn'
+  };
+
+  requestOptions = {                                                                                                                                                                                 
+    headers: new HttpHeaders(this.headerDict)
+  };
+
+  constructor(public platform: Platform,private db: AngularFireDatabase,private http: HttpClient) { }
+
+
+  // getTweetsList() {
+  //   if (this.platform.is('android') || this.platform.is('ios')) {
+
+  //     this.HttpNativeProvider.get('https://api.twitter.com/1.1/search/tweets.json?q=%23LegalTechConference19&src=typd', {}, { "Content-Type": "application/json" })
+  //       .then(data => {
+  //         var dataReturn = JSON.parse(data.data);
+  //         console.log(dataReturn.data);
+  //       })
+  //       .catch(error => {
+
+  //       });
+  //   } else {
+  //     this.HttpAngularProvider.get('https://api.twitter.com/1.1/search/tweets.json?q=%23LegalTechConference19&src=typd', this.requestOptions).map(res => res.json()).subscribe(data => {
+  //       console.log(data.data);
+
+  //     }, error => {
+
+  //     });
+  //   }
+  // }
  
 
+  getTweetsList() {
+    return this.http.get('https://api.twitter.com/1.1/search/tweets.json?q=%23LegalTechConference19&src=typd&tweet_mode=extended', this.requestOptions).map(res => res);
+    
+}
+
+
+// getTweetsList() {
+//   return this.http.get('http://www.json-generator.com/api/json/get/bUYtuKGPoy?indent=2').map(res => res);
+  
+// }
+
+
+
+  
+  
+
+
+  getPostsList() {
+    return this.postsListRef;
+}
 
 
 

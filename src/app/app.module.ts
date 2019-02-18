@@ -22,6 +22,13 @@ import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { SignupPage } from '../pages/signup/signup';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { HttpClientModule } from '@angular/common/http';
+import { PusherServiceProvider } from '../providers/pusher-service/pusher-service';
+import { TwitterDataProvider } from '../providers/twitter-data/twitter-data';
+import { FcmProvider } from '../providers/fcm/fcm';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { Firebase } from '@ionic-native/firebase/ngx';
+// import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 
 
@@ -61,6 +68,8 @@ firebase.initializeApp(firebaseConfig);
     TabsPageModule,
     LoginPageModule,
     NgxErrorsModule ,
+    HttpClientModule,
+    AngularFirestoreModule
     
     // SearchPipe.forRoot()
   ],
@@ -81,7 +90,12 @@ firebase.initializeApp(firebaseConfig);
     DataProvider,
     AuthProvider,
     AngularFireAuth,
-    ImagePicker
+    ImagePicker,
+    PusherServiceProvider,
+    TwitterDataProvider,
+    FcmProvider,
+    Firebase
+    
   ]
 })
 export class AppModule { }

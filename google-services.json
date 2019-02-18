@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "470663134509",
+    "firebase_url": "https://legaltech-7887b.firebaseio.com",
+    "project_id": "legaltech-7887b",
+    "storage_bucket": "legaltech-7887b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470663134509:android:463ec6f01360212d",
+        "android_client_info": {
+          "package_name": "com.alt.matchstick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470663134509-79gte1110rn4m14n2krsm2q2ll4bdrno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alt.matchstick",
+            "certificate_hash": "678aa9a5370b7a5814b8d4ba764443458003ed37"
+          }
+        },
+        {
+          "client_id": "470663134509-kbv50haso6pmlvp09u6p0kaud64r2fvs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcxuu7TqFHaM33kFNq-t4cJHAYj_Jwkjo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470663134509-kbv50haso6pmlvp09u6p0kaud64r2fvs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "470663134509-dmer59beiuh8nk4t0svogdcqp8oiel6q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alt.matchstick"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

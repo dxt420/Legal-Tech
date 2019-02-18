@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content class="bg" padding>
+<ion-content  padding>
     
 
   <h1 style="color:#00b7ff;" text-center><ion-icon name="time"></ion-icon> {{ xx.time }}</h1>
@@ -26,7 +26,7 @@
   <h3 style="color:#00b7ff;">Speakers</h3>
   <ion-item no-lines class="transparent3" *ngFor="let speaker of generateArray(xx.speakers)">
     <ion-avatar item-start>
-     <img [src]="'../../assets/img/event/avatar-placeholder.gif'">
+     <img src="{{ speaker.imageurl }}">
     </ion-avatar>
     <h2>{{ speaker.name }}</h2>
     <p>{{ speaker.info }}</p>

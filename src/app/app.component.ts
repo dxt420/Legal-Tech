@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import {  Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ToastController } from 'ionic-angular';
 
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthProvider } from '../providers/auth/auth';
+import { FcmProvider } from '../providers/fcm/fcm';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -39,7 +41,12 @@ import { AuthProvider } from '../providers/auth/auth';
       </ion-list>
       <br><br>
       <ion-avatar style="width: 40%;margin-left:30%;margin-bottom:1%;" id="jjj">
-          <img [src]="'../../assets/img/event/host.png'">
+          <img [src]="'assets/img/host.png'">
+  
+      </ion-avatar>
+      <br><br>
+      <ion-avatar style="width: 40%;margin-left:30%;margin-bottom:1%;" id="jjj" onclick="window.open('https://matchstick.ug')">
+          <img [src]="'assets/img/ms.png'">
   
       </ion-avatar>
     </ion-content>
@@ -56,8 +63,38 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  constructor( public platform: Platform,  private statusBar: StatusBar, private splashScreen: SplashScreen, private auth: AuthProvider) {
+  constructor(public platform: Platform, private statusBar: StatusBar, fcm: FcmProvider, toastCtrl: ToastController, private splashScreen: SplashScreen, private auth: AuthProvider) {
+    platform.ready().then(() => {
+
+      // Get a FCM token
+      fcm.getToken()
+
+      // Listen to incoming messages
+      fcm.listenToNotifications().pipe(
+        tap(msg => {
+          // show a toast
+          let messageText: string;
+          if (this.platform.is('android')) {
+            messageText = msg.body;
+          }
+
+          if (this.platform.is('ios')) {
+            messageText = msg.aps.alert;
+          }
+          const toast = toastCtrl.create({
+            message: messageText,
+            duration: 3000
+          });
+          toast.present();
+        })
+      )
+        .subscribe()
+
+
+    });
+
     this.initializeApp();
+
     this.pages = [
       { title: 'Speakers', component: 'SpeakersPage', icon: "people" },
       { title: 'Sponsors', component: 'SponsorsPage', icon: "ionic" },
@@ -65,16 +102,16 @@ export class MyApp {
       { title: 'Delegates', component: 'AttendeesPage', icon: 'ios-people' },
       { title: 'WiFi Information', component: 'WifiPage', icon: 'wifi' },
     ]
-    
+
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       // this.splashScreen.show();
-      setTimeout(()=>{
-        this.splashScreen.hide();  
-      },300);
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 300);
     });
 
     this.auth.afAuth.authState
@@ -94,7 +131,7 @@ export class MyApp {
 
 
 
- 
+
 
   openPage(a) {
     // Reset the content nav to have just this page

@@ -1,4 +1,4 @@
-<ion-content padding class="bg">
+<ion-content padding >
 
   <ion-item no-lines>
     <!-- <button ion-button (click)="openImagePicker()">Select Photo</button> -->
@@ -7,7 +7,7 @@
 
       <!-- <ion-text-avatar>{{ initials }}</ion-text-avatar> -->
 
-      <!-- <img [src]="'../../assets/img/event/avatar-placeholder.gif'"> -->
+      <!-- <img [src]="'assets/img/event/avatar-placeholder.gif'"> -->
       <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ initials }}</ion-text-avatar>
     </ion-avatar>
   </ion-item>
@@ -16,8 +16,8 @@
 
     <ion-item>
 
-      <h5>Name</h5>
-      <h3 style="color:#00b7ff;font-size:150%;">{{ fname }} {{ lname }}</h3>
+      <h5 style="color:#e4e4e4;">Name</h5>
+      <h3 style="font-size:102%;">{{ fname }} {{ lname }}</h3>
 
     </ion-item>
 
@@ -25,32 +25,32 @@
     <ion-item>
 
 
-      <h5>Email</h5>
-      <h3 style="color:#00b7ff;font-size:150%;">{{ this.authProvider.getEmail() }}</h3>
+      <h5 style="color:#e4e4e4;">Email</h5>
+      <h3 style="font-size:102%;">{{ this.authProvider.getEmail() }}</h3>
 
     </ion-item>
 
     <ion-item>
 
 
-      <h5>Company</h5>
-      <h3 style="color:#00b7ff;font-size:150%;">{{ company }}</h3>
+      <h5 style="color:#e4e4e4;">Company</h5>
+      <h3 style="font-size:102%;">{{ company }}</h3>
 
     </ion-item>
 
     <ion-item>
 
 
-      <h5>Position</h5>
-      <h3 style="color:#00b7ff;font-size:150%;">{{ position }}</h3>
+      <h5 style="color:#e4e4e4;">Position</h5>
+      <h3 style="font-size:102%;">{{ position }}</h3>
 
     </ion-item>
 
     <ion-item>
 
 
-      <h5>Phone</h5>
-      <h3 style="color:#00b7ff;font-size:150%;">{{ phone }}</h3>
+      <h5 style="color:#e4e4e4;">Phone</h5>
+      <h3 style="font-size:102%;">{{ phone }}</h3>
     </ion-item>
 
   </div>

@@ -103,6 +103,27 @@ export class AuthProvider {
   }
 
 
+  newPost(credentials) {
+        var ref = firebase.database().ref().child("posts");
+        var data = {
+          
+          firstName: credentials.firstName,
+          lastName: credentials.lastName,
+          company: credentials.company,
+          position: credentials.position,
+          body: credentials.body,
+          id: this.user.uid
+
+        }
+        ref.child(this.user.uid).push(data).then(function (ref) {//use 'child' and 'set' combination to save data in your own generated key
+          console.log("Saved");
+          //  $location.path('/profile');
+        }, function (error) {
+          console.log(error);
+        });
+      
+  }
+
 
   get authenticated(): boolean {
     return this.user !== null;
@@ -139,6 +160,7 @@ export class AuthProvider {
         imageRef.putString(image64, 'data_url')
           .then(snapshot => {
             resolve(snapshot.downloadURL)
+            
             // save image url around here
           }, err => {
             reject(err);

@@ -2,113 +2,168 @@
 
 
 
-  <ion-segment [(ngModel)]="abc" class="dx" mode="ios" >
+  <ion-segment [(ngModel)]="abc" class="dx" mode="ios">
 
-      <ion-segment-button  value="feed" class="d" >
-          Event Feed
-      </ion-segment-button>
-      <ion-segment-button value="social" class="d">
-          SocialWall
-      </ion-segment-button>
-     
-    
+    <ion-segment-button value="feed" class="d">
+      Event Feed <ion-icon name='paper'></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="social" class="d">
+      SocialWall <ion-icon name='logo-twitter'></ion-icon>
+    </ion-segment-button>
+
+
 
   </ion-segment>
 
 </ion-header>
 
 
-<ion-content class="bg" (pan)='swipeEvent($event)' >
+<ion-content  (pan)='swipeEvent($event)'>
 
 
-    <div [ngSwitch]="abc">
+  <div [ngSwitch]="abc">
     <div *ngSwitchCase="'feed'">
-       
 
-            <ion-card class="transparent" *ngFor="let item of cardItems">
 
-                    <ion-item class="transparent2">
-                      <ion-avatar item-start>
-                        <img [src]="item.user.avatar">
-                      </ion-avatar>
-                      <h2 >{{item.user.name}}</h2>
-                      <!-- <p>{{item.date}}</p> -->
-                    </ion-item>
-                
-                    <img [src]="item.image">
-                
-                    <ion-card-content>
-                      <p>{{item.content}}</p>
-                    </ion-card-content>
-                
-                    <ion-row>
-                      <!-- <ion-col>
-                        <button ion-button color="primary" clear small icon-start>
-                            <ion-icon name='thumbs-up'></ion-icon>
-                            12 Likes
-                          </button>
-                      </ion-col>
-                      <ion-col>
-                        <button ion-button color="primary" clear small icon-start>
-                            <ion-icon name='text'></ion-icon>
-                            4 Comments
-                          </button>
-                      </ion-col> -->
-                      <ion-col center text-center>
-                        <ion-note>
-                          11h ago
-                        </ion-note>
-                      </ion-col>
-                    </ion-row>
-                  </ion-card>
-                </div>
-
-    <div *ngSwitchCase="'social'">
-            
-            <ion-card class="transparent" *ngFor="let item of cardItems">
-
-                    
+    
+      <!-- <form (ngSubmit)="createPost()" [formGroup]="form">
+          <ion-input type="text" placeholder="Surname" formControlName="sname" value="{{fname}}" [hidden]="true"></ion-input>
+           
+          <ion-input type="text" placeholder="Other Name" formControlName="oname"  value="{{lname}}" [hidden]="true"></ion-input> 
         
-                    <ion-card-content>
-                      <p>{{item.content}}</p>
-                    </ion-card-content>
-                
-                    <ion-row>
-                      <ion-col>
-                        <button ion-button color="secondary" clear small icon-start>
-                            <ion-icon name='thumbs-up'></ion-icon>
-                            12 Likes
-                          </button>
-                      </ion-col>
-                      <ion-col>
-                        <button ion-button color="secondary" clear small icon-start>
-                            <ion-icon name='text'></ion-icon>
-                            4 Comments
-                          </button>
-                      </ion-col>
-                      <ion-col center text-center>
-                        <ion-note>
-                          22m ago
-                        </ion-note>
-                      </ion-col>
-                    </ion-row>
-                  </ion-card>
-            
+          <ion-input type="text" placeholder="Company" formControlName="company" value="{{company}}" [hidden]="true"></ion-input>
+    
+          <ion-input type="text" placeholder="Position" formControlName="position" value="{{position}}" [hidden]="true"></ion-input>
+        <div class="compose-post-area">
+          <ion-textarea class="post-compose" placeholder="Post something...." formControlName="body"></ion-textarea>
+          <button ion-button round class="tweet-post" [disabled]="!form.valid" type="submit">POST</button>
+        </div>
+      </form> -->
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div>
+        <ion-card>
+          <ion-item>
+            <h3>Hi <i>{{ fname }}</i> </h3>
+           
+          </ion-item>
+        </ion-card>
+
+        <div *ngFor="let post of posts | async">
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="https://api.adorable.io/avatars/100/avatar.png" alt="">
+              </ion-avatar>
+              <p>{{ post.firstName }} {{ post.lastName }} </p>
+            </ion-item>
+
+
+            <ion-card-content>
+              <p>{{ post.body }}</p>
+            </ion-card-content>
+
+            <ion-row>
+
+              <ion-col>
+                <button ion-button ion-start clear small>
+                  <ion-icon name="repeat"></ion-icon>
+                  <div>&nbsp;932 reposts</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button ion-start clear small color="danger">
+                  <ion-icon name="heart"></ion-icon>
+                  <div>&nbsp;12k likes</div>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+      </div>
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <div *ngSwitchCase="'social'" >
+      <ion-card *ngFor="let item of tweets.statuses">
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img [src]="item.user.profile_image_url">
+          </ion-avatar>
+          <h2>{{item.user.name}} </h2>
+          <p>@{{item.user.screen_name}}</p>
+          <p>{{tweetTime(item.date) | date:'mediumDate'}}</p>
+        </ion-item>
+    
+        
+    
+        <ion-card-content>
+          <p>{{item.full_text}}</p>
+        </ion-card-content>
+        <!-- <div *ngIf="item.retweeted_status.entities.media.media_url">
+        <img [src]="'item.retweeted_status.entities.media.media_url'">
+      </div> -->
+        <ion-row>
+       
+          <ion-col>
+            <button ion-button color="primary" clear small icon-start>
+              <ion-icon name="repeat"></ion-icon>
+              {{item.retweet_count}}
+              </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="primary" clear small icon-start>
+              <ion-icon name="heart"></ion-icon>
+              {{item.favourites_count}}
+              </button>
+          </ion-col>
+          <!-- <ion-col center text-center>
+            <ion-note>
+              11h ago
+            </ion-note>
+          </ion-col> -->
+        </ion-row>
+      </ion-card>
+      
     </div>
 
 
 
 
 
+
+
+
+  </div>
 
 
   
-    </div>
-
-
-
 
 </ion-content>
-
 
 

@@ -8,13 +8,13 @@
 </ion-header>
 
 
-<ion-content class="bg">
+<ion-content >
 
  
 
         <ion-item no-lines class="transparent" *ngFor="let attendee of attendees | async ; let i = index;" [ngClass]="(i % 2 == 0) ? 'odd' : 'even'" (click)="openItem(attendee,'AttendeeDetailsPage')">
             <ion-avatar item-start>
-                 <!-- <img [src]="'../../assets/img/event/avatar-placeholder.gif'"> -->
+                 <!-- <img [src]="'assets/img/event/avatar-placeholder.gif'"> -->
                  <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ first(attendee.firstName) }}{{ first(attendee.lastName) }}</ion-text-avatar>
             </ion-avatar>
 

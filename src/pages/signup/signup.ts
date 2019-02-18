@@ -37,6 +37,10 @@ export class SignupPage {
 			phone: ['', Validators.compose([Validators.required])],
 			position: ['', Validators.compose([Validators.required])],
 			gender: ['', Validators.compose([Validators.required])],
+			website: [],
+			facebook: [],
+			twitter: [],
+			linkedin: [],
 			email: ['', Validators.compose([Validators.required, Validators.email])],
 			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 		});
@@ -50,7 +54,7 @@ export class SignupPage {
   signup() {
 		let data = this.form.value;
 		let credentials = {
-			email: data.email,
+			
 			password: data.password,
 			firstName: data.oname,
 			lastName: data.sname,
@@ -67,6 +71,8 @@ export class SignupPage {
 }
 
 
+
+
 uploadImageToFirebase(image){
 	image = normalizeURL(image);
 
@@ -75,7 +81,7 @@ uploadImageToFirebase(image){
 	.then(photoURL => {
 		console.log(photoURL);
 		// this.img.src = photoURL;
-		this.imgurl = photoURL;
+		
 		let toast = this.toastCtrl.create({
 			message: 'Image was updated successfully',
 			duration: 3000
@@ -83,6 +89,7 @@ uploadImageToFirebase(image){
 		toast.present();
 		})
 	}
+
 
 openImagePicker(){
 	this.imagePicker.hasReadPermission().then(

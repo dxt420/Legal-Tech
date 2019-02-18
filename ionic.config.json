@@ -5,5 +5,9 @@
   },
   "type": "ionic-angular",
   "pro_id": "7aa3046e",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [{
+    "path": "/tdata",
+    "proxyUrl": "www.ntflix.com"
+  }]
 }

@@ -6,7 +6,7 @@ page-schedule {
     }
 
     .bg{
-        background-image: url('../../assets/img/event/bg.png');
+        
         background-size: cover;
         background-repeat: no-repeat;
       
@@ -37,4 +37,9 @@ page-schedule {
         margin-right: 20%;
     }
 
+
+    .item-divider-md{
+      border-bottom: 1px solid #00b7ff;
+
+  }
 }

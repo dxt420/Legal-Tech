@@ -14,12 +14,7 @@ page-home {
         background-color:  rgb(74, 140, 245);
     }
 
-    .bg{
-        background-image: url('../../assets/img/event/bg.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-      
-      }
+   
 
       .transparent{
         background-color: #75a6f5a1;
@@ -38,6 +33,11 @@ page-home {
         color: white;
     }
 
+    .item-md.item-block .item-inner{
+        border-bottom: 1px solid #00b7ff;
+
+    }
+
     ion-badge {
 		// position: absolute;
 		// top: -0.2rem;
@@ -45,4 +45,35 @@ page-home {
         opacity: 0.6;
         
     }
+
+    .compose-post-area{
+        display: flex;
+        align-items: center;
+    }
+
+    .card-md h2{
+        color:white;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

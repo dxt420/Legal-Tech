@@ -75,14 +75,7 @@ export class ProfilePage {
         console.log('OOPS, error', error)
       })
 
-      this.authProvider.getUserPic()
-      .then(fname => {
-        
-        this.initials = this.fname.toString().substring(0,1) + "" + this.lname.toString().substring(0,1);
-      })
-      .catch(error => {
-        console.log('OOPS, error', error)
-      })
+      
 
       this.img = document.getElementById("jj") as HTMLImageElement;
       
