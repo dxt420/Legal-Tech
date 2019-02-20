@@ -1,66 +1,98 @@
-<ion-content padding >
+<ion-content>
 
-  <ion-item no-lines>
-    <!-- <button ion-button (click)="openImagePicker()">Select Photo</button> -->
+  <ion-item style="background-color: transparent" no-lines>
+
     <ion-avatar id="jj" (click)="openImagePicker()">
-      <!-- <img [src]="img" (error)="setValue(fname,0)"> -->
 
-      <!-- <ion-text-avatar>{{ initials }}</ion-text-avatar> -->
 
-      <!-- <img [src]="'assets/img/event/avatar-placeholder.gif'"> -->
-      <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}">{{ initials }}</ion-text-avatar>
+      <ion-text-avatar [ngStyle]="{'background-color':getRandomColor()}" *ngIf="isAvatar">{{ initials }}</ion-text-avatar>
+
+
+      <img *ngIf="!isAvatar" [src]="imgurl">
     </ion-avatar>
   </ion-item>
 
+
   <div style="border-radius:10px;" class="transparent" text-center>
-
-    <ion-item>
-
-      <h5 style="color:#e4e4e4;">Name</h5>
-      <h3 style="font-size:102%;">{{ fname }} {{ lname }}</h3>
-
-    </ion-item>
+    <form (ngSubmit)="updateInfo()" [formGroup]="form">
+      <ion-item>
 
 
-    <ion-item>
+        <h5 style="color:#adaaaa;">Email</h5>
+        <h3>{{ this.authProvider.getEmail() }}</h3>
+
+      </ion-item>
+
+      <ion-item style="background-color: transparent" (click)="edit1()">
+        <h5 style="color:#adaaaa;">First Name</h5>
+        <h3 *ngIf="!isEditable1">{{ fname }} </h3>
+        <ion-input *ngIf="isEditable1" type="text" placeholder="Surname" value="{{ fname }}" formControlName="sname"></ion-input>
+      </ion-item>
+      
+      <ion-item style="background-color: transparent" (click)="edit2()">
+        <h5 style="color:#adaaaa;">Last Name</h5>
+        <h3 *ngIf="!isEditable2"> {{ lname }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable2" type="text" placeholder="Other Name" value="{{ lname }}" formControlName="oname"></ion-input>
 
 
-      <h5 style="color:#e4e4e4;">Email</h5>
-      <h3 style="font-size:102%;">{{ this.authProvider.getEmail() }}</h3>
 
-    </ion-item>
+      <ion-item style="background-color: transparent" (click)="edit3()">
+        <h5 style="color:#adaaaa;">Company</h5>
+        <h3 *ngIf="!isEditable3">{{ company }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable3" type="text" placeholder="Company" formControlName="company"></ion-input>
 
-    <ion-item>
+      <ion-item style="background-color: transparent" (click)="edit4()">
+        <h5 style="color:#adaaaa;">Position</h5>
+        <h3 *ngIf="!isEditable4">{{ position }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable4" type="text" placeholder="Position" formControlName="position"></ion-input>
+
+      <ion-item style="background-color: transparent" (click)="edit5()">
+        <h5 style="color:#adaaaa;">Phone</h5>
+        <h3 *ngIf="!isEditable5">{{ phone }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable5" type="tel" placeholder="Mobile Number" formControlName="phone"></ion-input>
+
+      <ion-item style="background-color: transparent" (click)="edit6()">
+        <h5 style="color:#adaaaa;">Facebook</h5>
+        <h3 *ngIf="!isEditable6">{{ fb }}</h3>
+      </ion-item>
+      <ion-input type="text" *ngIf="isEditable6" placeholder="Facebook" formControlName="facebook"></ion-input>
+
+      <ion-item style="background-color: transparent" (click)="edit7()">
+        <h5 style="color:#adaaaa;">Twitter</h5>
+        <h3 *ngIf="!isEditable7">{{ twitter }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable7" type="text" placeholder="Twitter" formControlName="twitter"></ion-input>
+
+      <ion-item style="background-color: transparent" (click)="edit8()">
+        <h5 style="color:#adaaaa;">Linkedin</h5>
+        <h3 *ngIf="!isEditable8">{{ linkedin }}</h3>
+      </ion-item>
+      <ion-input *ngIf="isEditable8" type="text" placeholder="Linkedin" formControlName="linkedin"></ion-input>
 
 
-      <h5 style="color:#e4e4e4;">Company</h5>
-      <h3 style="font-size:102%;">{{ company }}</h3>
+      
 
-    </ion-item>
+      <div class="xxx">
+        <button style="padding:20px;" ion-button type="submit" color="success">
+          Update Info
+        </button>
+      </div>
 
-    <ion-item>
-
-
-      <h5 style="color:#e4e4e4;">Position</h5>
-      <h3 style="font-size:102%;">{{ position }}</h3>
-
-    </ion-item>
-
-    <ion-item>
-
-
-      <h5 style="color:#e4e4e4;">Phone</h5>
-      <h3 style="font-size:102%;">{{ phone }}</h3>
-    </ion-item>
-
+    </form>
   </div>
 
   <ion-item-group>
 
     <ion-item>
-      <button ion-button (click)="signOut()" color="danger">
-        Sign Out
-      </button>
+      <div class="xx">
+        <button style="padding:30px;" ion-button (click)="signOut()" color="danger">
+          Sign Out
+        </button>
+      </div>
     </ion-item>
 
 

@@ -125,21 +125,19 @@
         <ion-card-content>
           <p>{{item.full_text}}</p>
         </ion-card-content>
-        <!-- <div *ngIf="item.retweeted_status.entities.media.media_url">
-        <img [src]="'item.retweeted_status.entities.media.media_url'">
-      </div> -->
+       
         <ion-row>
        
           <ion-col>
             <button ion-button color="primary" clear small icon-start>
               <ion-icon name="repeat"></ion-icon>
-              {{item.retweet_count}}
+              {{item.retweet_count}} Retweets
               </button>
           </ion-col>
           <ion-col>
             <button ion-button color="primary" clear small icon-start>
               <ion-icon name="heart"></ion-icon>
-              {{item.favourites_count}}
+              {{item.favourites_count}} Favourites
               </button>
           </ion-col>
           <!-- <ion-col center text-center>

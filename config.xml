@@ -2,7 +2,7 @@
 <widget id="com.alt.matchstick" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Legal Tech Conference</name>
     <description>LegalTech Conference 2019</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Matchstick256</author>
+    <author email="hi@matchstick.ug" href="https://www.matchstick.ug">Matchstick256</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -82,23 +82,20 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
-    <plugin name="cordova-plugin-device" spec="~2.0.2" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://192.168.56.1:8100" />
     <allow-navigation href="*" />
     <allow-navigation href="https://*twitter.com/*" />
-    <plugin name="cordova-plugin-googleplus" spec="7.0.0">
-        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.470663134509-kbv50haso6pmlvp09u6p0kaud64r2fvs" />
-        <variable name="WEB_APPLICATION_CLIENT_ID" value="470663134509-kbv50haso6pmlvp09u6p0kaud64r2fvs.apps.googleusercontent.com" />
-    </plugin>
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-device" spec="^2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.1.3" />
     <plugin name="cordova-plugin-telerik-imagepicker" spec="2.2.3">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="user images" />
     </plugin>
     <plugin name="cordova-plugin-ionic-webview" spec="1.2.1" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.4" />
     <plugin name="cordova-plugin-firebase" spec="2.0.5" />
-    <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-crop" spec="0.4.0" />
+    <engine name="browser" spec="5.0.4" />
 </widget>

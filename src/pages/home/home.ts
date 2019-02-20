@@ -4,18 +4,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { DataProvider } from '../../providers/data/data';
-import { TwitterDataProvider } from '../../providers/twitter-data/twitter-data';
-
-// import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import {DomSanitizer } from '@angular/platform-browser';
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -41,7 +31,7 @@ export class HomePage {
 
   myurl:any="";
   
-  constructor(public sanitizer: DomSanitizer,public navCtrl: NavController, public navParams: NavParams,  public alertCtrl: AlertController,fb: FormBuilder,private auth: AuthProvider, private speakersList: DataProvider,public twitterService: TwitterDataProvider) {
+  constructor(public sanitizer: DomSanitizer,public navCtrl: NavController, public navParams: NavParams,  public alertCtrl: AlertController,fb: FormBuilder,private auth: AuthProvider, private speakersList: DataProvider) {
 
     this.myurl="https://twitter.com/embed/twsrc%5Etfw";
     // this.browser = this.iab.create('https://twitter.com/LawTechUganda?ref_src=twsrc%5Etfw');

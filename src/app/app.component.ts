@@ -30,7 +30,7 @@ import { tap } from 'rxjs/operators';
 
     <ion-content>
       <ion-list no-lines>
-        <ion-item *ngFor="let p of pages" menuClose (click)="openPage(p)">
+        <ion-item style="background-color: rgba(0, 0, 0, 0);" *ngFor="let p of pages" menuClose (click)="openPage(p)">
           <ion-icon [name]="p.icon" item-left></ion-icon>
           {{ p.title }}
         </ion-item>
@@ -45,7 +45,9 @@ import { tap } from 'rxjs/operators';
   
       </ion-avatar>
       <br><br>
-      <ion-avatar style="width: 40%;margin-left:30%;margin-bottom:1%;" id="jjj" onclick="window.open('https://matchstick.ug')">
+      
+      <ion-avatar style="width: 40%;margin-left:30%;bottom:30px;position:absolute;" id="jjj" onclick="window.open('https://matchstick.ug')">
+      <h1 style="font-size:60%;">Hosted By</h1>
           <img [src]="'assets/img/ms.png'">
   
       </ion-avatar>
@@ -67,8 +69,13 @@ export class MyApp {
     platform.ready().then(() => {
 
       // Get a FCM token
-      fcm.getToken()
+      fcm.firebaseNative.getToken().then(token=>{
+        console.log(token);
+    })
+    
 
+
+      fcm.firebaseNative.subscribe('all');
       // Listen to incoming messages
       fcm.listenToNotifications().pipe(
         tap(msg => {
@@ -93,6 +100,10 @@ export class MyApp {
 
     });
 
+    fcm.firebaseNative.onTokenRefresh().subscribe(token=>{
+      console.log(token);
+    });
+
     this.initializeApp();
 
     this.pages = [
@@ -101,6 +112,7 @@ export class MyApp {
       { title: 'Exhibitors', component: 'ExhibitorsPage', icon: 'albums' },
       { title: 'Delegates', component: 'AttendeesPage', icon: 'ios-people' },
       { title: 'WiFi Information', component: 'WifiPage', icon: 'wifi' },
+      { title: 'Business Cards', component: 'SocialPage', icon: 'contacts' },
     ]
 
   }

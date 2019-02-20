@@ -23,7 +23,7 @@ page-profile {
       }
       .transparent{
         
-        padding: 10px;
+        padding: 5px;
     }
 
     .item-md{
@@ -40,4 +40,21 @@ page-profile {
         font-size: 300%;
       }
 
+      .item-md.item-block .item-inner{
+        border-bottom: 1px solid #00b7ff;
+
+      }
+
+    .xx{
+     width: 33%;
+     margin: 0 auto;
+    }
+
+    .xxx{
+      width: 50%;
+      margin: 0 auto;
+     }
+}
+.label-md {
+  margin: 13px 8px 6px 0;
 }

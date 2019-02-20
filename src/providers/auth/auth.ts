@@ -56,6 +56,34 @@ export class AuthProvider {
     })
   }
 
+  getFb() {
+    let userId = this.user.uid;
+    return this.db.database.ref(`/users/${userId}/facebook/`).once('value').then((snapshot) => {
+      return snapshot.val() || 'Anonymous';
+    })
+  }
+
+  getTwitter() {
+    let userId = this.user.uid;
+    return this.db.database.ref(`/users/${userId}/twitter/`).once('value').then((snapshot) => {
+      return snapshot.val() || 'Anonymous';
+    })
+  }
+
+  getLinkedin() {
+    let userId = this.user.uid;
+    return this.db.database.ref(`/users/${userId}/linkedin/`).once('value').then((snapshot) => {
+      return snapshot.val() || 'Anonymous';
+    })
+  }
+
+  getPhone() {
+    let userId = this.user.uid;
+    return this.db.database.ref(`/users/${userId}/phone/`).once('value').then((snapshot) => {
+      return snapshot.val() || 'Anonymous';
+    })
+  }
+
 
   signInWithEmail(credentials) {
     console.log('Sign in with email');
@@ -76,11 +104,17 @@ export class AuthProvider {
           phone: credentials.phone,
           imageurl: credentials.imageurl,
           gender: credentials.gender,
+          twitter: credentials.twitter,
+          linkedin: credentials.linkedin,
+          facebook: credentials.facebook,
+          website: credentials.website,
           id: user.user.uid
 
         }
         ref.child(user.user.uid).set(data).then(function (ref) {//use 'child' and 'set' combination to save data in your own generated key
           console.log("Saved");
+          let user = firebase.auth().currentUser;
+          user.sendEmailVerification();
           //  $location.path('/profile');
         }, function (error) {
           console.log(error);
@@ -102,6 +136,25 @@ export class AuthProvider {
       });
   }
 
+  profileUpdate(credentials){
+    var ref = firebase.database().ref().child("users");
+    var data = {
+     
+      firstName: credentials.firstName,
+      lastName: credentials.lastName,
+    
+
+    }
+    ref.child(this.user.uid).update(data).then(function (ref) {//use 'child' and 'set' combination to save data in your own generated key
+      console.log("Updated");
+      // let user = firebase.auth().currentUser;
+      // user.sendEmailVerification();
+      //  $location.path('/profile');
+    }, function (error) {
+      console.log(error);
+    });
+
+  }
 
   newPost(credentials) {
         var ref = firebase.database().ref().child("posts");
@@ -159,7 +212,8 @@ export class AuthProvider {
       this.encodeImageUri(imageURI, function (image64) {
         imageRef.putString(image64, 'data_url')
           .then(snapshot => {
-            resolve(snapshot.downloadURL)
+            resolve(snapshot.ref.getDownloadURL())
+            console.log(snapshot.ref.getDownloadURL())
             
             // save image url around here
           }, err => {

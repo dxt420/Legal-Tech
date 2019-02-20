@@ -20,9 +20,9 @@ import { ImagePicker } from '@ionic-native/image-picker';
 export class SignupPage {
   signupError: string;
 	form: FormGroup;
-	img;
+	
 
-	imgurl;
+	imgurl:string = "assets/img/avatar-placeholder.gif";
 	constructor(
 		fb: FormBuilder,
     	private navCtrl: NavController,
@@ -45,7 +45,7 @@ export class SignupPage {
 			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
 		});
 
-		this.img = document.getElementById("jj") as HTMLImageElement;
+		
   }
 
 
@@ -54,14 +54,18 @@ export class SignupPage {
   signup() {
 		let data = this.form.value;
 		let credentials = {
-			
 			password: data.password,
+			email: data.email,
 			firstName: data.oname,
 			lastName: data.sname,
 			company: data.company,
 			position: data.position,
 			gender: data.gender,
 			phone: data.phone,
+			website: data.website,
+			linkedin: data.linkedin,
+			twitter: data.twitter,
+			facebook: data.facebook,
 			imageurl: this.imgurl
 		};
 		this.auth.signUp(credentials).then(
@@ -80,7 +84,8 @@ uploadImageToFirebase(image){
 	this.auth.uploadImage(image)
 	.then(photoURL => {
 		console.log(photoURL);
-		// this.img.src = photoURL;
+		
+		this.imgurl = photoURL;
 		
 		let toast = this.toastCtrl.create({
 			message: 'Image was updated successfully',
@@ -113,6 +118,37 @@ openImagePicker(){
 			console.log(err);
 		});
 	}
+
+
+
+
+	// openImagePickerCrop(){
+	// 	this.imagePicker.hasReadPermission().then(
+	// 	  (result) => {
+	// 		if(result == false){
+	// 		  // no callbacks required as this opens a popup which returns async
+	// 		  this.imagePicker.requestReadPermission();
+	// 		}
+	// 		else if(result == true){
+	// 		  this.imagePicker.getPictures({
+	// 			maximumImagesCount: 1
+	// 		  }).then(
+	// 			(results) => {
+	// 			  for (var i = 0; i < results.length; i++) {
+	// 				this.cropService.crop(results[i], {quality: 75}).then(
+	// 				  newImage => {
+	// 					this.uploadImageToFirebase(newImage);
+	// 				  },
+	// 				  error => console.error("Error cropping image", error)
+	// 				);
+	// 			  }
+	// 			}, (err) => console.log(err)
+	// 		  );
+	// 		}
+	// 	  }, (err) => {
+	// 		console.log(err);
+	// 	  });
+	// 	}
 }
 
 

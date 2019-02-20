@@ -23,11 +23,11 @@ import { SignupPage } from '../pages/signup/signup';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { HttpClientModule } from '@angular/common/http';
-import { PusherServiceProvider } from '../providers/pusher-service/pusher-service';
-import { TwitterDataProvider } from '../providers/twitter-data/twitter-data';
+
+
 import { FcmProvider } from '../providers/fcm/fcm';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { Firebase } from '@ionic-native/firebase/ngx';
+import { Firebase } from '@ionic-native/firebase';
 // import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 
@@ -91,10 +91,10 @@ firebase.initializeApp(firebaseConfig);
     AuthProvider,
     AngularFireAuth,
     ImagePicker,
-    PusherServiceProvider,
-    TwitterDataProvider,
+
     FcmProvider,
-    Firebase
+    Firebase,
+    // FCM
     
   ]
 })
